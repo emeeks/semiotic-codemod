@@ -1,0 +1,45 @@
+{
+  "name": "@semiotic/codemod",
+  "version": "0.1.0",
+  "description": "Codemods for migrating Semiotic v1.x / v2.x apps to v3. Pairs with the migration guide at https://nteract-semiotic-docs.netlify.app/migration.",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/nteract/semiotic#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nteract/semiotic.git",
+    "directory": "codemod"
+  },
+  "bugs": {
+    "url": "https://github.com/nteract/semiotic/issues"
+  },
+  "keywords": [
+    "semiotic",
+    "codemod",
+    "migration",
+    "jscodeshift",
+    "react"
+  ],
+  "bin": {
+    "semiotic-codemod": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "transforms",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "jscodeshift": "^0.15.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "peerDependencies": {
+    "semiotic": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
