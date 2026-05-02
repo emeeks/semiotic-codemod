@@ -4,7 +4,7 @@
  * name to the bundled script and forwards every other CLI flag to
  * jscodeshift unchanged. Usage:
  *
- *   npx @semiotic/codemod <transform> <path...> [jscodeshift flags]
+ *   npx semiotic-codemod <transform> <path...> [jscodeshift flags]
  *
  * Available transforms:
  *   realtime-network-frame   pure import + JSX rename to StreamNetworkFrame
@@ -38,7 +38,7 @@ function printHelp() {
     "  --extensions=tsx,ts,jsx,js   file extensions to process",
     "  --parser=tsx       parser to use (default: tsx)",
     "",
-    "Migration guide: https://nteract-semiotic-docs.netlify.app/migration",
+    "Migration guide: https://semiotic.nteract.io/migration",
   ]
   console.log(lines.join("\n"))
 }
