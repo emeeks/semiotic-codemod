@@ -1,16 +1,15 @@
 {
-  "name": "@semiotic/codemod",
+  "name": "semiotic-codemod",
   "version": "0.1.0",
-  "description": "Codemods for migrating Semiotic v1.x / v2.x apps to v3. Pairs with the migration guide at https://nteract-semiotic-docs.netlify.app/migration.",
+  "description": "Codemods for migrating Semiotic v1.x / v2.x apps to v3. Pairs with the migration guide at https://semiotic.nteract.io/migration.",
   "license": "Apache-2.0",
-  "homepage": "https://github.com/nteract/semiotic#readme",
+  "homepage": "https://github.com/emeeks/semiotic-codemod#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nteract/semiotic.git",
-    "directory": "codemod"
+    "url": "https://github.com/emeeks/semiotic-codemod.git"
   },
   "bugs": {
-    "url": "https://github.com/nteract/semiotic/issues"
+    "url": "https://github.com/emeeks/semiotic-codemod/issues"
   },
   "keywords": [
     "semiotic",
