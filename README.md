@@ -1,29 +1,29 @@
-# `@semiotic/codemod`
+# `semiotic-codemod`
 
 Automated source transforms for migrating [Semiotic](https://github.com/nteract/semiotic) v1.x / v2.x apps to v3.
 
-> **Pairs with the migration guide.** This package handles the mechanical parts of the upgrade — the rest of the migration is documented at [the Semiotic migration guide](https://nteract-semiotic-docs.netlify.app/migration). Read both: the codemod fixes the easy 60% so you can focus on what's actually different in your app.
+> **Pairs with the migration guide.** This package handles the mechanical parts of the upgrade — the rest of the migration is documented at [the Semiotic migration guide](https://semiotic.nteract.io/migration). Read both: the codemod fixes the easy 60% so you can focus on what's actually different in your app.
 
 ## Quick start
 
 ```bash
 # Run the full migration recipe across your source tree
-npx @semiotic/codemod migration-recipe ./src
+npx semiotic-codemod migration-recipe ./src
 
 # Or pick individual transforms
-npx @semiotic/codemod realtime-network-frame ./src
-npx @semiotic/codemod realtime-sankey ./src
-npx @semiotic/codemod subpath-imports ./src
+npx semiotic-codemod realtime-network-frame ./src
+npx semiotic-codemod realtime-sankey ./src
+npx semiotic-codemod subpath-imports ./src
 ```
 
 The CLI shells out to [jscodeshift](https://github.com/facebook/jscodeshift), so every jscodeshift flag works:
 
 ```bash
 # Preview changes without writing
-npx @semiotic/codemod migration-recipe ./src --dry --print
+npx semiotic-codemod migration-recipe ./src --dry --print
 
 # Process a custom set of extensions
-npx @semiotic/codemod subpath-imports ./src --extensions=ts,tsx
+npx semiotic-codemod subpath-imports ./src --extensions=ts,tsx
 ```
 
 The transforms default to the `tsx` parser (handles `.js`, `.jsx`, `.ts`, `.tsx`). Pass `--parser=babel` for plain JavaScript codebases without TypeScript type syntax.
@@ -62,22 +62,23 @@ npm install
 npm test          # runs the fixture-based test suite
 ```
 
-Each transform has paired `*.input.tsx` / `*.output.tsx` fixtures under [`tests/__testfixtures__/`](./tests/__testfixtures__/). The test runner exercises both the transformation (input → output) and idempotency (running the transform twice produces no further changes).
+Each transform has paired `*.input.tsx` / `*.output.tsx` fixtures under [`tests/__testfixtures__/`](./tests/__testfixtures__/). The test runner exercises both the transformation (input → output) and idempotency (running the transform twice produces no further changes), plus an end-to-end recipe test that chains all three transforms together (regression cover for the dedupe path that fires when two renames target the same name).
 
 ## Style note
 
 The codemod emits jscodeshift / recast's default style for new nodes (semicolons on new statements; original style preserved for unchanged ones). Run your formatter afterward to get a uniform style — most teams pair this with prettier:
 
 ```bash
-npx @semiotic/codemod migration-recipe ./src
+npx semiotic-codemod migration-recipe ./src
 npx prettier --write ./src
 ```
 
 ## Related
 
-- **Migration guide** — [nteract-semiotic-docs.netlify.app/migration](https://nteract-semiotic-docs.netlify.app/migration)
 - **Semiotic** — [github.com/nteract/semiotic](https://github.com/nteract/semiotic)
-- **Issues** — [github.com/nteract/semiotic/issues](https://github.com/nteract/semiotic/issues) (file under the `migration` label)
+- **Migration guide** — [semiotic.nteract.io/migration](https://semiotic.nteract.io/migration)
+- **Issues with the codemod** — [github.com/emeeks/semiotic-codemod/issues](https://github.com/emeeks/semiotic-codemod/issues)
+- **Issues with Semiotic itself** — [github.com/nteract/semiotic/issues](https://github.com/nteract/semiotic/issues)
 
 ## License
 
